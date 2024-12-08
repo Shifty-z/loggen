@@ -1,0 +1,41 @@
+Dumping all stored logs!
+Dumping all trace logs
+Dumping all debug logs
+Dumping all info logs
+Dumping all warn logs
+Dumping all error logs
+Connection dropped, attempting to find another signal
+Connection established, signal strength: None
+Connection established, signal strength: Weak
+Connection established, signal strength: Average
+Connection established, signal strength: Above-average
+Connection established, signal strength: Great
+Finding user by their identifier
+Finding user by their name
+Finding user by date
+Finding customer by their identifier
+Finding customer by their name
+Finding customer by date
+Finding part by its identifier
+Finding part by its name
+Finding part by date
+Application started
+Application closing
+Failed to invalidate cache. Issue: Skill
+Initializing cache with default settings
+Cache was initialized with default settings
+Clearing cache by removing elements that are no longer within the date
+Clearing cache by removing elements that haven't been used in the last 5 requests
+Your logger has invalid settings. Reconfigure it using the expected configuration.
+Log element { "name": "UIExplorer", "owner": "The Internet", "id": 536548734 }
+Attempting to lex the provided element and create a Log
+Lexing the current log file
+Lexing the current log file finished
+attempting to parse the tokenized elements
+Welcome to LogParser
+This might do something more than lex and parse log files in the future
+JSONParser only works with JSON files. Submit a valid JSON file.
+getRandomLogLevel - The default case was hit! Level value generated: 4
+loggen/loggen-rand.getRandomLogLevel()\n/Users/user/Projects/loggen/loggen-rand/rand.go:87 +0x12c
+loggen/loggen-rand.GenerateRandomLogLine(0x1400010ce98)\n/Users/user/Projects/loggen/loggen-rand/rand.go:16 +0xe4
+main.main()\n/Users/user/Projects/loggen/main.go:13 +0x80\n exit status 2
