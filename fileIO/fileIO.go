@@ -30,8 +30,6 @@ type CommandFlags struct {
 
 // LoadSources - Loads content from each of the data files.
 func LoadSources() DataSources {
-	// TODO: Add something to check for the expected files. If they don't exist, create them.
-
 	classNamesFile := OpenFile(path.Join(resourcesFolder, classNamesFile))
 	defer classNamesFile.Close()
 	classes := ReadCsvAndGetLines(classNamesFile)
