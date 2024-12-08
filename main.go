@@ -100,7 +100,8 @@ func createFlagWith(extension, prefix *string, count *int) *commandFlag {
 	}
 
 	// The trailing delimiter doesn't matter, include one for the sake of making filenames easier to read
-	if !strings.HasSuffix(*prefix, "-") || !strings.HasSuffix(*prefix, "_") {
+	if !strings.HasSuffix(*prefix, "-") && !strings.HasSuffix(*prefix, "_") {
+		fmt.Printf("The prefix %s does not have - or _!\n", *prefix)
 		*prefix = *prefix + "-"
 	}
 
