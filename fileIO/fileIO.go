@@ -122,7 +122,6 @@ func CreateLogFile(flags *CommandFlags) *os.File {
 
 // WriteLog - Writes provided data to the file and returns the destination file's name.
 func WriteLog(logs *[]string, file *os.File) {
-	//file := createLogFile()
 	defer file.Close()
 
 	fmt.Println("Writing lines")
