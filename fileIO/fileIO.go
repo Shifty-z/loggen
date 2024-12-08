@@ -5,12 +5,13 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path"
 	"strings"
 	"time"
 )
 
-// TODO: Move these into a special folder
 const (
+	resourcesFolder = "resources"
 	classNamesFile  = "class-names.csv"
 	methodNamesFile = "method-names.csv"
 	messagesFile    = "messages.txt"
@@ -31,15 +32,15 @@ type CommandFlags struct {
 func LoadSources() DataSources {
 	// TODO: Add something to check for the expected files. If they don't exist, create them.
 
-	classNamesFile := OpenFile(classNamesFile)
+	classNamesFile := OpenFile(path.Join(resourcesFolder, classNamesFile))
 	defer classNamesFile.Close()
 	classes := ReadCsvAndGetLines(classNamesFile)
 
-	methodNamesFile := OpenFile(methodNamesFile)
+	methodNamesFile := OpenFile(path.Join(resourcesFolder, methodNamesFile))
 	defer methodNamesFile.Close()
 	methods := ReadCsvAndGetLines(methodNamesFile)
 
-	messagesFile := OpenFile(messagesFile)
+	messagesFile := OpenFile(path.Join(resourcesFolder, messagesFile))
 	defer messagesFile.Close()
 	messages := ReadTextFileLines(messagesFile)
 
@@ -121,7 +122,6 @@ func CreateLogFile(flags *CommandFlags) *os.File {
 
 // WriteLog - Writes provided data to the file and returns the destination file's name.
 func WriteLog(logs *[]string, file *os.File) {
-	//file := createLogFile()
 	defer file.Close()
 
 	fmt.Println("Writing lines")
