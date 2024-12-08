@@ -30,8 +30,6 @@ type CommandFlags struct {
 
 // LoadSources - Loads content from each of the data files.
 func LoadSources() DataSources {
-	// TODO: Add something to check for the expected files. If they don't exist, create them.
-
 	classNamesFile := OpenFile(path.Join(resourcesFolder, classNamesFile))
 	defer classNamesFile.Close()
 	classes := ReadCsvAndGetLines(classNamesFile)
@@ -48,12 +46,14 @@ func LoadSources() DataSources {
 }
 
 // OpenFile - Opens a file with the given `filename` and returns a handle to it. Does not close the file itself!
+// PANIC NOTE: If no file with the provided name exists, or it cannot be interacted with for some reason, this
+// panics.
 func OpenFile(filename string) *os.File {
 	file, err := os.Open(filename)
 
 	if err != nil {
-		fmt.Printf("Unable to open the file\n")
-		panic("Unable to open file!")
+		e := fmt.Sprintf("OpenFile: Unable to interact with the file: %s\n Error: %s\n", filename, err)
+		panic(e)
 	}
 
 	return file
