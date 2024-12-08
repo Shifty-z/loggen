@@ -52,8 +52,8 @@ func OpenFile(filename string) *os.File {
 	file, err := os.Open(filename)
 
 	if err != nil {
-		fmt.Printf("Unable to open the file\n")
-		panic("Unable to open file!")
+		e := fmt.Sprintf("OpenFile: Unable to interact with the file: %s\n Error: %s\n", filename, err)
+		panic(e)
 	}
 
 	return file
