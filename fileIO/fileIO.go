@@ -10,7 +10,6 @@ import (
 	"time"
 )
 
-// TODO: Move these into a special folder
 const (
 	resourcesFolder = "resources"
 	classNamesFile  = "class-names.csv"
