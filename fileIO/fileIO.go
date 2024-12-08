@@ -103,6 +103,9 @@ func createFileName(args *[]string) string {
 	return sb.String()
 }
 
+// CreateLogFile - Creates a file for loggen to write log data to. Checks once for duplicate filenames created
+// by this function. This uses timestamps in filenames to reduce naming collisions.
+// PANIC NOTE: If the os.Create function cannot create a file with the generate name, this panics.
 func CreateLogFile(flags *CommandFlags) *os.File {
 	filename := createFileName(&[]string{flags.Prefix, timestamp(), flags.Extension})
 
