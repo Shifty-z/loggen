@@ -104,17 +104,15 @@ func createFileName(args *[]string) string {
 }
 
 func CreateLogFile(flags *CommandFlags) *os.File {
-	fileName := createFileName(&[]string{flags.Prefix, timestamp(), flags.Extension})
+	filename := createFileName(&[]string{flags.Prefix, timestamp(), flags.Extension})
 
-	if _, err := os.Stat(fileName); err != nil && errors.Is(err, os.ErrExist) {
-		fileName = flags.Prefix + timestamp() + flags.Extension
+	if _, err := os.Stat(filename); err != nil && errors.Is(err, os.ErrExist) {
+		filename = flags.Prefix + timestamp() + flags.Extension
 	}
 
-	file, err := os.Create(fileName)
-
+	file, err := os.Create(filename)
 	if err != nil {
-		fmt.Println("Unable to create the log file: ", fileName)
-		panic("Log file creation failure")
+		panic(fmt.Sprintf("Unable to create log file %s because of error: %s\n", filename, err))
 	}
 
 	return file
