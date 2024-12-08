@@ -48,6 +48,8 @@ func LoadSources() DataSources {
 }
 
 // OpenFile - Opens a file with the given `filename` and returns a handle to it. Does not close the file itself!
+// PANIC NOTE: If no file with the provided name exists, or it cannot be interacted with for some reason, this
+// panics.
 func OpenFile(filename string) *os.File {
 	file, err := os.Open(filename)
 
