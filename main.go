@@ -22,7 +22,6 @@ type commandFlag struct {
 }
 
 func main() {
-	// TODO: Check comments in fileIO
 	descriptions := createFlagDescription()
 
 	extension := flag.String("ext", ".log", descriptions.Extension)
