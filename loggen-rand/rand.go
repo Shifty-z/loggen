@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+// GenerateRandomLogLine - Constructs a mocked log line that includes a timestamp, log level, a "class" name
+// a "method" name, and a fake message.
 func GenerateRandomLogLine(sources *fileIO.DataSources) string {
 	sb := strings.Builder{}
 
@@ -67,12 +69,14 @@ func createTimestamp() string {
 	return sb.String()
 }
 
+// getRandomValueInSource - Generates a random index and returns the value from `source` at the generated index.
 func getRandomValueInSource(source *[]string) string {
 	idx := randInRange(0, len(*source)-1)
 
 	return (*source)[idx]
 }
 
+// getRandomLogLevel - Generates a random log level (e.g., ERROR).
 func getRandomLogLevel() string {
 	switch level := randInRange(0, 3); level {
 	case 0:
