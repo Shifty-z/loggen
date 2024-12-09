@@ -92,6 +92,7 @@ func timestamp() string {
 	return now.Format(time.RFC3339)
 }
 
+// createFileName - Creates a name for the generated log file using `args`.
 func createFileName(args *[]string) string {
 	var sb strings.Builder
 	sb.Grow(len(*args))
